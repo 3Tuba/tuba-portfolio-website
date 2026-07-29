@@ -1,0 +1,519 @@
+/* ==========================================================================
+   PERSONAL WEBSITE STYLESHEET
+   Clean, modern, minimalistic — card based layout
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   THEME / COLOR VARIABLES
+   Change anything between the ***** markers to re-theme the whole site.
+   All colors, fonts and spacing are defined once here and reused everywhere
+   below, so editing this block is enough to restyle the entire page.
+   -------------------------------------------------------------------------- */
+/* **************** THEME START **************** */
+:root {
+  /* core palette */
+  --color-bg: #fafafa;              /* page background (light) */
+  --color-surface: #ffffff;         /* card / surface background */
+  --color-text: #16181d;            /* primary text color */
+  --color-text-muted: #5b616e;      /* secondary / muted text */
+  --color-border: #e7e7ea;          /* hairline borders / dividers */
+  --color-accent: #0d9488;          /* single accent color (teal) */
+  --color-accent-hover: #0b7a70;    /* accent color on hover */
+  --color-accent-soft: #e6f5f3;     /* light accent tint (tags, badges) */
+
+  /* typography */
+  --font-heading: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  /* layout */
+  --max-width: 880px;
+  --radius: 14px;
+  --shadow-card: 0 1px 2px rgba(16, 18, 22, 0.04), 0 8px 24px rgba(16, 18, 22, 0.04);
+  --transition: 0.2s ease;
+}
+/* **************** THEME END **************** */
+
+/* --------------------------------------------------------------------------
+   RESET / BASE STYLES
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+section {
+  padding: 0 1.5rem;
+}
+
+.wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* visible focus state for keyboard navigation (accessibility) */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   NAVIGATION
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 250, 250, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+
+/* mobile nav toggle button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   CARD — the shared building block for every section on the page
+   -------------------------------------------------------------------------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 3rem 2.5rem;
+  margin: 2.5rem 0;
+}
+
+.card-header {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.card-header h2 {
+  font-size: 1.7rem;
+}
+
+/* --------------------------------------------------------------------------
+   HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero {
+  padding-top: 3rem;
+}
+
+.hero.card {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero-photo {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-accent-soft);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.hero-text .role {
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
+}
+
+.hero-text p {
+  color: var(--color-text-muted);
+  max-width: 46ch;
+  margin-bottom: 1.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   BUTTONS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   ABOUT SECTION
+   -------------------------------------------------------------------------- */
+.about p {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  max-width: 65ch;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skill-tag {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-hover);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* --------------------------------------------------------------------------
+   PROJECTS SECTION
+   -------------------------------------------------------------------------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.project-thumb {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  background: var(--color-accent-soft);
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-body h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.project-body p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.project-tags span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-links a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT SECTION
+   -------------------------------------------------------------------------- */
+.contact p {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  max-width: 55ch;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  transition: border-color var(--transition), color var(--transition);
+  color: var(--color-text-muted);
+}
+
+.social-links a:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.social-links svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 2.5rem 1.5rem 3rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   BLOG PAGE SPECIFIC STYLES
+   -------------------------------------------------------------------------- */
+.blog-empty {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.blog-post {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-post:last-child {
+  border-bottom: none;
+}
+
+.blog-post h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.blog-post .blog-date {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.blog-post p {
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — mobile styles
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    gap: 0;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .hero.card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-text p {
+    max-width: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION — respect user preference
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}
