@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Your Name</title>
+  <meta name="description" content="Blog posts by Your Name.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================== NAVIGATION ============================== -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Your Name</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+
+    <!-- ============================== BLOG ============================== -->
+    <section id="blog">
+      <div class="card blog">
+        <div class="card-header">
+          <span class="eyebrow">Blog</span>
+          <h2>Writing</h2>
+        </div>
+
+        <!--
+          HOW TO ADD A NEW BLOG POST:
+          Copy the commented "blog-post" block below, paste it inside
+          <div class="blog-posts">, uncomment it, and edit the title,
+          date and text. Newest posts should go at the top.
+
+          <div class="blog-post">
+            <span class="blog-date">Month Day, Year</span>
+            <h3>Your Post Title</h3>
+            <p>Your post content goes here. Keep it as a single paragraph,
+               or add more &lt;p&gt; tags for longer posts.</p>
+          </div>
+        -->
+
+        <div class="blog-posts">
+          <!-- No posts yet — add your first one above this line -->
+        </div>
+
+        <!-- Shown only when there are no posts yet.
+             Delete this whole <div> once you add real posts above. -->
+        <div class="blog-empty">
+          <p>No blog posts yet — check back soon!</p>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer>
+    <p>&copy; <span id="year"></span> Your Name. Built with HTML &amp; CSS, hosted on GitHub Pages.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
